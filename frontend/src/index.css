@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+:root {
+  --mist-bg: #e8eef3;
+  --mist-deep: #5f7589;
+  --mist-ink: #1a2833;
+  --mist-line: color-mix(in srgb, #6b8499 28%, transparent);
+  --accent: #3d6b5a;
+  --accent-soft: color-mix(in srgb, #3d6b5a 14%, white);
+}
+
+@layer base {
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Figtree', 'Segoe UI', sans-serif;
+    color: var(--mist-ink);
+    background:
+      radial-gradient(ellipse 120% 70% at 50% -15%, #c2d3e2 0%, transparent 55%),
+      radial-gradient(ellipse 80% 50% at 100% 40%, #b7c8d6 0%, transparent 45%),
+      linear-gradient(180deg, #d9e4ee 0%, var(--mist-bg) 42%, #ccd8e3 100%);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  .font-display {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--mist-line);
+    background: color-mix(in srgb, white 60%, transparent);
+    padding: 0.625rem 0.75rem;
+    color: var(--mist-ink);
+    outline: none;
+  }
+
+  .field:focus {
+    border-color: var(--accent);
+  }
+}
+
+@keyframes haze-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.haze-pulse {
+  animation: haze-pulse 1.2s ease-in-out infinite;
+}
